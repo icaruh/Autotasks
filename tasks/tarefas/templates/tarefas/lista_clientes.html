@@ -1,0 +1,14 @@
+ 
+{% extends 'tarefas/base.html' %}
+
+{% block content %}
+    <h2>Lista de Clientes</h2>
+    <ul class="list-group">
+        {% for cliente in clientes %}
+            <li class="list-group-item">
+                <a href="{% url 'detalhes_cliente' cliente.id %}">{{ cliente.nome }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'adicionar_cliente' %}" class="btn btn-primary mt-3">Adicionar Cliente</a>
+{% endblock %}
