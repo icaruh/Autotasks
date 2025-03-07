@@ -1,0 +1,13 @@
+{% extends 'tarefas/base.html' %}
+
+{% block content %}
+    <h2>Lista de Serviços</h2>
+    <ul class="list-group">
+        {% for servico in servicos %}
+            <li class="list-group-item">
+                {{ servico.descricao }} - {{ servico.veiculo.placa }} ({{ servico.data }})
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'adicionar_servico' %}" class="btn btn-primary mt-3">Adicionar Serviço</a>
+{% endblock %}

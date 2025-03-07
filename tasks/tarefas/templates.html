@@ -1,11 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'tarefas/base.html' %}
 
 {% block content %}
-    <h2>Lista de Clientes</h2>
-    <ul>
-        {% for cliente in clientes %}
-            <li><a href="{% url 'detalhes_cliente' cliente.id %}">{{ cliente.nome }}</a></li>
+    <h2>Lista de Veículos</h2>
+    <ul class="list-group">
+        {% for veiculo in veiculos %}
+            <li class="list-group-item">
+                {{ veiculo.modelo }} - {{ veiculo.placa }} (Dono: {{ veiculo.cliente.nome }})
+            </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'adicionar_cliente' %}" class="btn btn-primary">Adicionar Cliente</a>
+    <a href="{% url 'adicionar_veiculo' %}" class="btn btn-primary mt-3">Adicionar Veículo</a>
 {% endblock %}
